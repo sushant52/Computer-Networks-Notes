@@ -483,6 +483,21 @@ An HTTP request message is a conditional get if
 
 A conditional get message is sent from the cache to server which responds only if the object has been modified.
 
+### Difference between HTTP and SMTP
+First, HTTP is mainly
+a pull protocol—someone loads information on a Web server and users use HTTP to pull the
+information from the server at their convenience. In particular, the TCP connection is initiated by the
+machine that wants to receive the file. On the other hand, SMTP is primarily a push protocol—the
+sending mail server pushes the file to the receiving mail server. In particular, the TCP connection is
+initiated by the machine that wants to send the file.
+A second difference, which we alluded to earlier, is that SMTP requires each message, including the
+body of each message, to be in 7-bit ASCII format. If the message contains characters that are not 7-bit
+ASCII (for example, French characters with accents) or contains binary data (such as an image file),
+then the message has to be encoded into 7-bit ASCII. HTTP data does not impose this restriction.
+A third important difference concerns how a document consisting of text and images (along with possibly
+other media types) is handled. As we learned in Section 2.2, HTTP encapsulates each object in its own
+HTTP response message. SMTP places all of the message’s objects into one message.
+
 ## 2.5 DNS - The Internet's Directory Service
 One identifier for a host is its **hostname** [`cnn.com`, `www.yahoo.com`]. Hostnames are mnemonic and therefore used by humans. Hosts are also identified by **IP addresses**.
 
